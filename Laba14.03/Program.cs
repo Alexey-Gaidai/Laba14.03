@@ -31,6 +31,7 @@ namespace Laba14._03
                     "4 - сравнение \n " +
                     "5 - детерминант А \n " +
                     "6 - детерминант B \n " +
+                    "7 - умножить А на 3 \n " +
                     "f - ВЫХОД ИЗ ПРОГРАММЫ \n " +
                     "Ввод: ");
                 choice = Console.ReadLine();
@@ -61,6 +62,9 @@ namespace Laba14._03
                         break;
                     case "6":
                         Console.WriteLine(quadMatrix.Deta(B).det);
+                        break;
+                    case "7":
+                        Console.WriteLine((A * 3).MatrixToString());
                         break;
                     default:
                         Console.WriteLine("Введено некорректное значение");

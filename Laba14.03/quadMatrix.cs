@@ -64,6 +64,14 @@ namespace Laba14._03
                     result.Matrix[i, j] = A.Matrix[i, j] * B.Matrix[i, j];
             return result;
         }
+        public static quadMatrix operator *(quadMatrix A, int a)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            for (int i = 0; i < A.Matrix.GetLength(0); i++)
+                for (int j = 0; j < A.Matrix.GetLength(1); j++)
+                    result.Matrix[i, j] = A.Matrix[i, j] * a;
+            return result;
+        }
 
         public static quadMatrix operator >(quadMatrix A, quadMatrix B)
         {
