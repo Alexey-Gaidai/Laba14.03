@@ -34,12 +34,10 @@ namespace Laba14._03
         }
         public static quadMatrix operator +(quadMatrix A, quadMatrix B)
         {
-
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
                 for (int j = 0; j < A.Matrix.GetLength(1); j++)
-                    A.Matrix[i, j] += B.Matrix[i, j];
+                     A.Matrix[i, j] += B.Matrix[i, j];
             return A;
-
         }
 
         public static quadMatrix operator -(quadMatrix A, quadMatrix B)
@@ -49,7 +47,6 @@ namespace Laba14._03
                     A.Matrix[i, j] -= B.Matrix[i, j];
             return A;
         }
-
     }
 }
 
