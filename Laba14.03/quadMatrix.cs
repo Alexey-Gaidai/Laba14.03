@@ -4,11 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Laba14._03
 {
     public class quadMatrix
     {
         public double[,] Matrix;
+        public double[,] result;
+        public double res1 = 0;
+        public double res2 = 0;
+        public double res3 = 0;
+        public double det = 0;
         public quadMatrix(int n, double A, double B)
         {
                 double[,] Matrix = new double[n, n];
@@ -34,18 +40,77 @@ namespace Laba14._03
         }
         public static quadMatrix operator +(quadMatrix A, quadMatrix B)
         {
+            quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
                 for (int j = 0; j < A.Matrix.GetLength(1); j++)
-                     A.Matrix[i, j] += B.Matrix[i, j];
-            return A;
+                     result.Matrix[i, j] = A.Matrix[i, j] + B.Matrix[i, j];
+            return result;
         }
 
         public static quadMatrix operator -(quadMatrix A, quadMatrix B)
         {
+            quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
                 for (int j = 0; j < A.Matrix.GetLength(1); j++)
-                    A.Matrix[i, j] -= B.Matrix[i, j];
-            return A;
+                    result.Matrix[i, j] = A.Matrix[i, j] - B.Matrix[i, j];
+            return result;
+        }
+
+        public static quadMatrix operator *(quadMatrix A, quadMatrix B)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            for (int i = 0; i < A.Matrix.GetLength(0); i++)
+                for (int j = 0; j < A.Matrix.GetLength(1); j++)
+                    result.Matrix[i, j] = A.Matrix[i, j] * B.Matrix[i, j];
+            return result;
+        }
+
+        public static quadMatrix operator >(quadMatrix A, quadMatrix B)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            for (int i = 0; i < A.Matrix.GetLength(0); i++)
+                for (int j = 0; j < A.Matrix.GetLength(1); j++)
+                {
+                    result.res1 += A.Matrix[i, j];
+                    result.res2 += B.Matrix[i, j];
+                }
+            result.res3 = result.res1 - result.res2;
+            if (result.res3 > 0)
+                Console.WriteLine("Матрица А - больше на " + result.res3);
+            if (result.res3 < 0)
+                Console.WriteLine("Матрица B - больше на " + result.res3);
+            return result;
+        }
+        public static quadMatrix operator <(quadMatrix A, quadMatrix B)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            for (int i = 0; i < A.Matrix.GetLength(0); i++)
+                for (int j = 0; j < A.Matrix.GetLength(1); j++)
+                {
+                    result.res1 += A.Matrix[i, j];
+                    result.res2 += B.Matrix[i, j];
+                }
+            result.res3 = result.res1 - result.res2;
+            if (result.res3 > 0)
+                Console.WriteLine("Матрица А - больше " + result.res3);
+            if (result.res3 < 0)
+                Console.WriteLine("Матрица B - больше " + result.res3);
+            return result;
+        }
+
+        public static quadMatrix Deta(quadMatrix A)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            result.det = ((A.Matrix[0, 0] * A.Matrix[1, 1] * A.Matrix[2, 2]) + (A.Matrix[0, 1] * A.Matrix[1, 2] * A.Matrix[2, 0]) + (A.Matrix[0, 2] * A.Matrix[1, 0] * A.Matrix[2, 1]))
+              - (A.Matrix[0, 2] * A.Matrix[1, 1] * A.Matrix[2, 0]) - (A.Matrix[0, 1] * A.Matrix[1, 0] * A.Matrix[2, 2] - (A.Matrix[0, 0] * A.Matrix[1, 2] * A.Matrix[2, 1]));
+            return result;
+        }
+        public static quadMatrix Detb(quadMatrix B)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            result.det = ((B.Matrix[0, 0] * B.Matrix[1, 1] * B.Matrix[2, 2]) + (B.Matrix[0, 1] * B.Matrix[1, 2] * B.Matrix[2, 0]) + (B.Matrix[0, 2] * B.Matrix[1, 0] * B.Matrix[2, 1]))
+              - (B.Matrix[0, 2] * B.Matrix[1, 1] * B.Matrix[2, 0]) - (B.Matrix[0, 1] * B.Matrix[1, 0] * B.Matrix[2, 2] - (B.Matrix[0, 0] * B.Matrix[1, 2] * B.Matrix[2, 1]));
+            return result;
         }
     }
 }
