@@ -37,7 +37,7 @@ namespace Laba14._03
 
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
                 for (int j = 0; j < A.Matrix.GetLength(1); j++)
-                    A[i, j] += B[i, j];
+                    A.Matrix[i, j] += B.Matrix[i, j];
             return A;
 
         }
@@ -46,9 +46,8 @@ namespace Laba14._03
         {
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
                 for (int j = 0; j < A.Matrix.GetLength(1); j++)
-                    A[i, j] -= B[i, j];
+                    A.Matrix[i, j] -= B.Matrix[i, j];
             return A;
-
         }
 
     }

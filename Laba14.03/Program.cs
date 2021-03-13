@@ -10,17 +10,45 @@ namespace Laba14._03
     {
         static void Main(string[] args)
         {
-            quadMatrix A = new quadMatrix(3, 0, 9);
-            Console.WriteLine(A.MatrixToString());
-            Console.WriteLine();
+            quadMatrix A = new quadMatrix(3, 0, 10);
 
-            quadMatrix B = new quadMatrix(3, 0, 9);
-            Console.WriteLine(B.MatrixToString());
-            Console.WriteLine();
+            quadMatrix B = new quadMatrix(3, 0, 10);
+            
+            string choice;//переменная ввода
 
-            Console.WriteLine((A + B).MatrixToString);
-            Console.ReadKey();
+
+            while (true)
+            {
+                Console.WriteLine("\n=======================\n");
+                Console.WriteLine(A.MatrixToString()+"\n");
+                Console.WriteLine(B.MatrixToString()+"\n");
+                Console.Write("Меню: \n " +
+                    "1 - сложить \n " +
+                    "2 - вычесть \n " +
+                    "f - ВЫХОД ИЗ ПРОГРАММЫ \n " +
+                    "Ввод: ");
+                choice = Console.ReadLine();
+                Console.Clear();
+
+                //проверка на выход
+                if (choice == "f")
+                {
+                    Console.WriteLine("\n\n\n\nВЫХОД\n\n\n\n");
+                    break;
+                }
+                switch (choice)//действия по нажатию
+                {
+                    case "1":
+                        Console.WriteLine((A + B).MatrixToString());
+                        break;
+                    case "2":
+                        Console.WriteLine((A - B).MatrixToString());
+                        break;
+                    default:
+                        Console.WriteLine("Введено некорректное значение");
+                        break;
+                }
+            }
         }
-
     }
 }
