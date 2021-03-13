@@ -112,6 +112,14 @@ namespace Laba14._03
               - (B.Matrix[0, 2] * B.Matrix[1, 1] * B.Matrix[2, 0]) - (B.Matrix[0, 1] * B.Matrix[1, 0] * B.Matrix[2, 2] - (B.Matrix[0, 0] * B.Matrix[1, 2] * B.Matrix[2, 1]));
             return result;
         }
+        public override int GetHashCode()
+        {
+            return Matrix.GetHashCode();
+        }
+        public bool Equals(quadMatrix A)
+        {
+            return Matrix == A.Matrix;
+        }
     }
 }
 
