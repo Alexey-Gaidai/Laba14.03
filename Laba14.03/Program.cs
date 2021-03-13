@@ -10,14 +10,17 @@ namespace Laba14._03
     {
         static void Main(string[] args)
         {
-            quadMatrix one = new quadMatrix();
-            int m = 3;
-            int n = 3;
-            double A = 3;
-            double B = 3;
-            one.MaterialMatrix(m, n, A, B);
-            one.MatrixToString();
-           
+            quadMatrix A = new quadMatrix(3, 0, 9);
+            Console.WriteLine(A.MatrixToString());
+            Console.WriteLine();
+
+            quadMatrix B = new quadMatrix(3, 0, 9);
+            Console.WriteLine(B.MatrixToString());
+            Console.WriteLine();
+
+            Console.WriteLine((A + B).MatrixToString);
+            Console.ReadKey();
         }
+
     }
 }
