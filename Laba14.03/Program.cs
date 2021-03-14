@@ -57,25 +57,25 @@ namespace Laba14._03
                 switch (choice)//действия по нажатию
                 {
                     case "1":
-                        Console.WriteLine((A + B).MatrixToString());
+                        Console.WriteLine((aclone + bclone).MatrixToString());
                         break;
                     case "2":
-                        Console.WriteLine((A - B).MatrixToString());
+                        Console.WriteLine((aclone - bclone).MatrixToString());
                         break;
                     case "3":
-                        Console.WriteLine((A * B).MatrixToString());
+                        Console.WriteLine((aclone * bclone).MatrixToString());
                         break;
                     case "3.1":
-                        Console.WriteLine((A * 2).MatrixToString());
+                        Console.WriteLine((aclone * 2).MatrixToString());
                         break;
                     case "3.2":
-                        Console.WriteLine((A * 3).MatrixToString());
+                        Console.WriteLine((aclone * 3).MatrixToString());
                         break;
                     case "3.3":
-                        Console.WriteLine((B * 2).MatrixToString());
+                        Console.WriteLine((bclone * 2).MatrixToString());
                         break;
                     case "3.4":
-                        Console.WriteLine((B * 3).MatrixToString());
+                        Console.WriteLine((bclone * 3).MatrixToString());
                         break;
                     case "4":
                         Console.WriteLine(A > B);
