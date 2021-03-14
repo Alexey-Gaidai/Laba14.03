@@ -24,6 +24,18 @@ namespace Laba14._03
                         Matrix[i, j] = Math.Round((Rnd.NextDouble() * Math.Abs((A - B)) + Math.Min(A, B)), 0);
                 this.Matrix = Matrix;
         }
+
+        public quadMatrix ShallowCopy()
+        {
+            return (quadMatrix)this.MemberwiseClone();
+        }
+
+        public quadMatrix DeepCopy()
+        {
+            quadMatrix clone = (quadMatrix)this.MemberwiseClone();
+            clone.Matrix = this.Matrix;
+            return clone;
+        }
         public string MatrixToString()
         {
             string text = "";

@@ -11,10 +11,12 @@ namespace Laba14._03
         static void Main(string[] args)
         {
             quadMatrix A = new quadMatrix(3, 0, 10);
+            quadMatrix aclone = A.DeepCopy();
 
             quadMatrix B = new quadMatrix(3, 0, 10);
+            quadMatrix bclone = B.DeepCopy();
 
-            
+
             string choice;//переменная ввода
 
 
