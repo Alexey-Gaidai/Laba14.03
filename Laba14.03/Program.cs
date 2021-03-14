@@ -10,19 +10,19 @@ namespace Laba14._03
     {
         static void Main(string[] args)
         {
-            quadMatrix A = new quadMatrix(3, 0, 10);
-            quadMatrix aclone = A.DeepCopy();
+            quadMatrix A = new quadMatrix(3, 0, 10);//матрица а
+            quadMatrix aclone = A.DeepCopy();//копия а
 
-            quadMatrix B = new quadMatrix(3, 0, 10);
-            quadMatrix bclone = B.DeepCopy();
+            quadMatrix B = new quadMatrix(3, 0, 10);//матрица б
+            quadMatrix bclone = B.DeepCopy();//копия б
 
 
             string choice;//переменная ввода
 
 
-            while (true)
+            while (true)//менюшка по приколу(логика)
             {
-                Console.WriteLine("\n=======================\n");
+                Console.WriteLine("\n=======================\n"); //выводы
                 Console.WriteLine("Matrix A:");
                 Console.WriteLine(A.MatrixToString()+"\n");
                 Console.WriteLine("Matrix B:");
@@ -57,7 +57,7 @@ namespace Laba14._03
                 switch (choice)//действия по нажатию
                 {
                     case "1":
-                        Console.WriteLine((aclone + bclone).MatrixToString());
+                        Console.WriteLine((aclone + bclone).MatrixToString());//используем прототип, я жек его зачем то создал, правильно?
                         break;
                     case "2":
                         Console.WriteLine((aclone - bclone).MatrixToString());
@@ -93,7 +93,7 @@ namespace Laba14._03
                         Console.WriteLine(B.GetHashCode());
                         break;
                     case "9":
-                        Console.WriteLine(A.Equals(A,B));
+                        Console.WriteLine(B.Equals(A,B));//по сути не имеет значения к методу какого класса обращаться, главное что он сравнивает отправляемые в него значеня
                         break;
                     case "10":
                         Console.WriteLine((A++).MatrixToString());

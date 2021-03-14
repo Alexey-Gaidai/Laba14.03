@@ -7,36 +7,36 @@ using System.Threading.Tasks;
 
 namespace Laba14._03
 {
-    public class quadMatrix
+    public class quadMatrix//класс матрицы специально перенес в отдельный файл ибо я крутой да могу позволить
     {
-        public double[,] Matrix;
-        public double[,] result;
-        public double res1 = 0;
+        public double[,] Matrix;//матрица для действий
+        public double[,] result;//матрица для результата, мог и бы и дипкопи использовать вообще...
+        public double res1 = 0;//буферные переменные для временных данных
         public double res2 = 0;
         public double res3 = 0;
         public double det = 0;
-        public quadMatrix(int n, double A, double B)
+        public quadMatrix(int n, double A, double B)//генерируем матрицу размеров n*n с диапозоном от А до В
         {
                 double[,] Matrix = new double[n, n];
-                Random Rnd = new Random(DateTime.Now.Millisecond);
-                for (int i = 0; i < n; i++)
+                Random Rnd = new Random(DateTime.Now.Millisecond);//так как генерируются матрицы одновременно то получаются одинаковые, дэйт тайм решает данную проблему генерируя их в разное время
+            for (int i = 0; i < n; i++)
                     for (int j = 0; j < n; j++)
-                        Matrix[i, j] = Math.Round((Rnd.NextDouble() * Math.Abs((A - B)) + Math.Min(A, B)), 0);
-                this.Matrix = Matrix;
+                        Matrix[i, j] = Math.Round((Rnd.NextDouble() * Math.Abs((A - B)) + Math.Min(A, B)), 0);//логика рандома
+            this.Matrix = Matrix;
         }
 
-        public quadMatrix ShallowCopy()
+        public quadMatrix ShallowCopy()//создает частичную копию класса
         {
             return (quadMatrix)this.MemberwiseClone();
         }
 
-        public quadMatrix DeepCopy()
+        public quadMatrix DeepCopy()//создает полную копию матрицы
         {
             quadMatrix clone = (quadMatrix)this.MemberwiseClone();
             clone.Matrix = this.Matrix;
             return clone;
         }
-        public string MatrixToString()
+        public string MatrixToString()//туСтринг собственной персоной
         {
             string text = "";
             for (int i = 0; i < Matrix.GetLength(0); i++)
@@ -50,7 +50,7 @@ namespace Laba14._03
             }
             return text;
         }
-        public static quadMatrix operator +(quadMatrix A, quadMatrix B)
+        public static quadMatrix operator +(quadMatrix A, quadMatrix B)//оператор сложения
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -59,7 +59,7 @@ namespace Laba14._03
             return result;
         }
 
-        public static quadMatrix operator ++(quadMatrix A)
+        public static quadMatrix operator ++(quadMatrix A)//оператор инкремента
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -68,7 +68,7 @@ namespace Laba14._03
             return A;
         }
 
-        public static quadMatrix operator -(quadMatrix A, quadMatrix B)
+        public static quadMatrix operator -(quadMatrix A, quadMatrix B)//оператор вычитания
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -77,7 +77,7 @@ namespace Laba14._03
             return result;
         }
 
-        public static quadMatrix operator *(quadMatrix A, quadMatrix B)
+        public static quadMatrix operator *(quadMatrix A, quadMatrix B)//оператор умножения матриц между собой
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -85,7 +85,7 @@ namespace Laba14._03
                     result.Matrix[i, j] = A.Matrix[i, j] * B.Matrix[i, j];
             return result;
         }
-        public static quadMatrix operator *(quadMatrix A, int a)
+        public static quadMatrix operator *(quadMatrix A, int a)//оператор умножения матрицы на число
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -94,7 +94,7 @@ namespace Laba14._03
             return result;
         }
 
-        public static quadMatrix operator >(quadMatrix A, quadMatrix B)
+        public static quadMatrix operator >(quadMatrix A, quadMatrix B)//опертор сравнения матриц по сумме элементов
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -110,7 +110,7 @@ namespace Laba14._03
                 Console.WriteLine("Матрица B - больше на " + result.res3);
             return result;
         }
-        public static quadMatrix operator <(quadMatrix A, quadMatrix B)
+        public static quadMatrix operator <(quadMatrix A, quadMatrix B)//второй оператор чтобы компилятор не ругался и первый не грустил
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             for (int i = 0; i < A.Matrix.GetLength(0); i++)
@@ -127,7 +127,7 @@ namespace Laba14._03
             return result;
         }
 
-        public static quadMatrix Det(quadMatrix A)
+        public static quadMatrix Det(quadMatrix A)//опеределитель матрицы 3 на 3(простите я не знаю как определять для 4на4 и 5на5)
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             result.det = ((A.Matrix[0, 0] * A.Matrix[1, 1] * A.Matrix[2, 2]) + (A.Matrix[0, 1] * A.Matrix[1, 2] * A.Matrix[2, 0]) + (A.Matrix[0, 2] * A.Matrix[1, 0] * A.Matrix[2, 1]))
@@ -135,11 +135,11 @@ namespace Laba14._03
             return result;
         }
       
-        public override int GetHashCode()
+        public override int GetHashCode()//получаем хэш-код 
         {
             return this.Matrix.GetHashCode();
         }
-        public bool Equals(quadMatrix A, quadMatrix B)
+        public bool Equals(quadMatrix A, quadMatrix B)//сравнивает матрицы между собой
         {
             return B.Matrix == A.Matrix;
         }
