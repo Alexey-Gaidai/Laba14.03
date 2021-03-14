@@ -106,27 +106,21 @@ namespace Laba14._03
             return result;
         }
 
-        public static quadMatrix Deta(quadMatrix A)
+        public static quadMatrix Det(quadMatrix A)
         {
             quadMatrix result = new quadMatrix(3, 0, 10);
             result.det = ((A.Matrix[0, 0] * A.Matrix[1, 1] * A.Matrix[2, 2]) + (A.Matrix[0, 1] * A.Matrix[1, 2] * A.Matrix[2, 0]) + (A.Matrix[0, 2] * A.Matrix[1, 0] * A.Matrix[2, 1]))
               - (A.Matrix[0, 2] * A.Matrix[1, 1] * A.Matrix[2, 0]) - (A.Matrix[0, 1] * A.Matrix[1, 0] * A.Matrix[2, 2] - (A.Matrix[0, 0] * A.Matrix[1, 2] * A.Matrix[2, 1]));
             return result;
         }
-        public static quadMatrix Detb(quadMatrix B)
-        {
-            quadMatrix result = new quadMatrix(3, 0, 10);
-            result.det = ((B.Matrix[0, 0] * B.Matrix[1, 1] * B.Matrix[2, 2]) + (B.Matrix[0, 1] * B.Matrix[1, 2] * B.Matrix[2, 0]) + (B.Matrix[0, 2] * B.Matrix[1, 0] * B.Matrix[2, 1]))
-              - (B.Matrix[0, 2] * B.Matrix[1, 1] * B.Matrix[2, 0]) - (B.Matrix[0, 1] * B.Matrix[1, 0] * B.Matrix[2, 2] - (B.Matrix[0, 0] * B.Matrix[1, 2] * B.Matrix[2, 1]));
-            return result;
-        }
+      
         public override int GetHashCode()
         {
-            return Matrix.GetHashCode();
+            return this.Matrix.GetHashCode();
         }
-        public bool Equals(quadMatrix A)
+        public bool Equals(quadMatrix A, quadMatrix B)
         {
-            return Matrix == A.Matrix;
+            return B.Matrix == A.Matrix;
         }
     }
 }

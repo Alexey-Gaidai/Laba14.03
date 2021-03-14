@@ -13,6 +13,7 @@ namespace Laba14._03
             quadMatrix A = new quadMatrix(3, 0, 10);
 
             quadMatrix B = new quadMatrix(3, 0, 10);
+
             
             string choice;//переменная ввода
 
@@ -27,11 +28,17 @@ namespace Laba14._03
                 Console.Write("Меню: \n " +
                     "1 - сложить \n " +
                     "2 - вычесть \n " +
-                    "3 - умножить \n " +
+                    "3 - умножить матрицы \n " +
+                    " 3.1 - умножить А на 2 \n " +
+                    " 3.2 - умножить А на 3 \n " +
+                    " 3.3 - умножить В на 2 \n " +
+                    " 3.4 - умножить В на 3 \n " +
                     "4 - сравнение \n " +
                     "5 - детерминант А \n " +
                     "6 - детерминант B \n " +
-                    "7 - умножить А на 3 \n " +
+                    "7 - GetHashCode A\n " +
+                    "8 - GetHashCode B\n " +
+                    "9 - Equals A \n " +
                     "f - ВЫХОД ИЗ ПРОГРАММЫ \n " +
                     "Ввод: ");
                 choice = Console.ReadLine();
@@ -54,17 +61,35 @@ namespace Laba14._03
                     case "3":
                         Console.WriteLine((A * B).MatrixToString());
                         break;
+                    case "3.1":
+                        Console.WriteLine((A * 2).MatrixToString());
+                        break;
+                    case "3.2":
+                        Console.WriteLine((A * 3).MatrixToString());
+                        break;
+                    case "3.3":
+                        Console.WriteLine((B * 2).MatrixToString());
+                        break;
+                    case "3.4":
+                        Console.WriteLine((B * 3).MatrixToString());
+                        break;
                     case "4":
                         Console.WriteLine(A > B);
                         break;
                     case "5":
-                        Console.WriteLine(quadMatrix.Deta(A).det);
+                        Console.WriteLine(quadMatrix.Det(A).det);
                         break;
                     case "6":
-                        Console.WriteLine(quadMatrix.Deta(B).det);
+                        Console.WriteLine(quadMatrix.Det(B).det);
                         break;
                     case "7":
-                        Console.WriteLine((A * 3).MatrixToString());
+                        Console.WriteLine(A.GetHashCode());
+                        break;
+                    case "8":
+                        Console.WriteLine(B.GetHashCode());
+                        break;
+                    case "9":
+                        Console.WriteLine(A.Equals(A,B));
                         break;
                     default:
                         Console.WriteLine("Введено некорректное значение");
