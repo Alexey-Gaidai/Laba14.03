@@ -47,6 +47,15 @@ namespace Laba14._03
             return result;
         }
 
+        public static quadMatrix operator ++(quadMatrix A)
+        {
+            quadMatrix result = new quadMatrix(3, 0, 10);
+            for (int i = 0; i < A.Matrix.GetLength(0); i++)
+                for (int j = 0; j < A.Matrix.GetLength(1); j++)
+                    A.Matrix[i, j] += 1;
+            return A;
+        }
+
         public static quadMatrix operator -(quadMatrix A, quadMatrix B)
         {
             quadMatrix result = new quadMatrix(3, 0, 10);

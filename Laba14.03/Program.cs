@@ -39,6 +39,8 @@ namespace Laba14._03
                     "7 - GetHashCode A\n " +
                     "8 - GetHashCode B\n " +
                     "9 - Equals A \n " +
+                    "10 - Увеличить A на 1 \n " +
+                    "11 - Увеличить В на 1 \n " +
                     "f - ВЫХОД ИЗ ПРОГРАММЫ \n " +
                     "Ввод: ");
                 choice = Console.ReadLine();
@@ -90,6 +92,12 @@ namespace Laba14._03
                         break;
                     case "9":
                         Console.WriteLine(A.Equals(A,B));
+                        break;
+                    case "10":
+                        Console.WriteLine((A++).MatrixToString());
+                        break;
+                    case "11":
+                        Console.WriteLine((B++).MatrixToString());
                         break;
                     default:
                         Console.WriteLine("Введено некорректное значение");
