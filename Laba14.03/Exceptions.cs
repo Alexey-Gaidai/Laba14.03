@@ -20,7 +20,7 @@ namespace Laba14._03
         : base(aMessage) //Вызываем конструктор базового класса
     {
         errorCode = aCode;
-            Console.WriteLine(aMessage);
+            Console.WriteLine(aMessage + "\n" + "код ошибки: " + aCode);
 
     }
  
