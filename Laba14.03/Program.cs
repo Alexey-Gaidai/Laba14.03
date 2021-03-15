@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Laba14._03
 {
+    
     class Program
     {
         static void Main(string[] args)
@@ -16,25 +17,27 @@ namespace Laba14._03
             quadMatrix B = new quadMatrix(3, 0, 10);//матрица б
             quadMatrix bclone = B.DeepCopy();//копия б
 
+            if (A.Matrix[0, 0] == 0)
+            {
+                throw new Exceptions();
+            }
 
             string choice;//переменная ввода
 
 
-            while (true)//менюшка по приколу(логика)
+            while (true)//менюшка, ее логика
             {
                 Console.WriteLine("\n=======================\n"); //выводы
                 Console.WriteLine("Matrix A:");
-                Console.WriteLine(A.MatrixToString()+"\n");
+                Console.WriteLine(A.MatrixToString() + "\n");
                 Console.WriteLine("Matrix B:");
-                Console.WriteLine(B.MatrixToString()+"\n");
+                Console.WriteLine(B.MatrixToString() + "\n");
                 Console.Write("Меню: \n " +
                     "1 - сложить \n " +
                     "2 - вычесть \n " +
                     "3 - умножить матрицы \n " +
-                    " 3.1 - умножить А на 2 \n " +
-                    " 3.2 - умножить А на 3 \n " +
-                    " 3.3 - умножить В на 2 \n " +
-                    " 3.4 - умножить В на 3 \n " +
+                    " 3.1 - умножить А на число \n " +
+                    " 3.2 - умножить В на число \n " +
                     "4 - сравнение \n " +
                     "5 - детерминант А \n " +
                     "6 - детерминант B \n " +
@@ -66,16 +69,24 @@ namespace Laba14._03
                         Console.WriteLine((aclone * bclone).MatrixToString());
                         break;
                     case "3.1":
-                        Console.WriteLine((aclone * 2).MatrixToString());
+                        Console.Write("введите число для умножения: ");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        if (a == 0)
+                        {
+                            throw new PersonException("ERROR!!!вы ввели ноль!!!", 1212);
+                        }
+                        else 
+                            Console.WriteLine((aclone * a).MatrixToString());
                         break;
                     case "3.2":
-                        Console.WriteLine((aclone * 3).MatrixToString());
-                        break;
-                    case "3.3":
-                        Console.WriteLine((bclone * 2).MatrixToString());
-                        break;
-                    case "3.4":
-                        Console.WriteLine((bclone * 3).MatrixToString());
+                        Console.Write("введите число для умножения: ");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        if (b == 0)
+                        {
+                            throw new PersonException("ERROR!!!вы ввели ноль!!!", 1212);
+                        }
+                        else
+                            Console.WriteLine((aclone * b).MatrixToString());
                         break;
                     case "4":
                         Console.WriteLine(A > B);
@@ -93,7 +104,7 @@ namespace Laba14._03
                         Console.WriteLine(B.GetHashCode());
                         break;
                     case "9":
-                        Console.WriteLine(B.Equals(A,B));//по сути не имеет значения к методу какого класса обращаться, главное что он сравнивает отправляемые в него значеня
+                        Console.WriteLine(B.Equals(A, B));//по сути не имеет значения к методу какого класса обращаться, главное что он сравнивает отправляемые в него значеня
                         break;
                     case "10":
                         Console.WriteLine((A++).MatrixToString());
@@ -110,5 +121,7 @@ namespace Laba14._03
                 }
             }
         }
+
+
     }
 }
