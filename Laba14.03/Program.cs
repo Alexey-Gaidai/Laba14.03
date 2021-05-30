@@ -11,10 +11,10 @@ namespace Laba14._03
     {
         static void Main(string[] args)
         {
-            quadMatrix A = new quadMatrix(3, 0, 10);//матрица а
+            quadMatrix A = new quadMatrix(3, 1, 1);//матрица а
             quadMatrix aclone = A.DeepCopy();//копия а
 
-            quadMatrix B = new quadMatrix(3, 0, 10);//матрица б
+            quadMatrix B = new quadMatrix(3, 1, 1);//матрица б
             quadMatrix bclone = B.DeepCopy();//копия б
 
             if (A.Matrix[0, 0] == 0)
@@ -108,9 +108,6 @@ namespace Laba14._03
                         break;
                     case "10":
                         Console.WriteLine((A++).MatrixToString());
-                        /*кстати интересный факт: когда меняется класс то дипкопи меняется вместе с ним, копируя полностью его поведение, 
-                        это я проверил на инкременте. Когда мы увеличивает матрицу на один, то и клон так же увеличивается на один. 
-                        например запустим программу: сделаем сложение, запомним, увеличим и сложим опять, вау, разные результаты обалдеть,mindblowing!!!*/
                         break;
                     case "11":
                         Console.WriteLine((B++).MatrixToString());
